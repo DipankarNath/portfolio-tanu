@@ -2,7 +2,7 @@ import {Sheet, SheetTrigger, SheetContent} from "./components/ui/Sheet"
 import {Button} from "./components/ui/Button"
 import {RainbowButton} from "./components/ui/RainbowButton.tsx";
 
-function MenuIcon(props) {
+function MenuIcon(props: { className?: string }) {
     return (
         <svg
             {...props}
@@ -24,7 +24,7 @@ function MenuIcon(props) {
 }
 
 
-function MountainIcon(props) {
+function MountainIcon(props: { className?: string }) {
     return (
         <svg
             {...props}
@@ -114,7 +114,7 @@ const secTwo = [
 ];
 
 
-const VideoBox = ({ title, link }) => (
+const VideoBox = ({ title, link }: { title: string; link: string }) => (
     <div className={'aspect-video bg-stone-50 border border-solid border-gray-200 px-1.5 pt-1.5'}>
         <iframe width="100%" height="100%" src={link}
                 title="YouTube video player" frameBorder="0"
@@ -142,11 +142,11 @@ function App() {
                     <p className={'font-light text-[16px] text-[#5f5f5f] tracking-wide pt-3'}>Turning Moments into Forever</p>
                 </div>
                 <section className={'my-12 sm:columns-3 columns-1'}>
-                    {secOne.map((item, index) => <VideoBox key={item.title} link={item.link} title={item.title} />)}
+                    {secOne.map((item) => <VideoBox key={item.title} link={item.link} title={item.title} />)}
                 </section>
 
                 <section className={'my-12 sm:columns-3 columns-1'}>
-                    {secTwo.map((item, index) => <VideoBox key={item.title} link={item.link} title={item.title} />)}
+                    {secTwo.map((item) => <VideoBox key={item.title} link={item.link} title={item.title} />)}
                 </section>
 
                 <section className={'pt-18'}>
