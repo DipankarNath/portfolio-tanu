@@ -1,11 +1,9 @@
 import React from "react";
 import { cn } from "../../lib/utils";
-//
-// interface RainbowButtonProps
-//     extends React.ButtonHTMLAttributes<HTMLButtonElement> {}
-// RainbowButtonProps
-// @ts-expect-error dsd
-export const RainbowButton = React.forwardRef<HTMLButtonElement>(({ children, className, ...props }, ref) => {
+
+// interface RainbowButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {}
+
+export const RainbowButton = React.forwardRef<HTMLButtonElement, React.ButtonHTMLAttributes<HTMLButtonElement>>(({ children, className, ...props }, ref) => {
     return (
         <button
             ref={ref}
