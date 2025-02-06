@@ -110,7 +110,7 @@ const secOne = [
 const secTwo = [
     { title: 'Prabarita & Sudip', link: 'https://www.youtube.com/embed/McrHpegOx7Q?si=4iYqH-GSVurP0184' },
     { title: 'Swagata & Pritam', link: 'https://www.youtube.com/embed/8nGqubL1D8k?si=mnowADPn_ccfIdKs' },
-    { title: 'Mrinmayee & Dwaipayan', link: 'https://www.youtube.com/embed/M85u3UaUdtc?si=rDWvRuDQkN0hPNz5' },
+    { title: 'Half-Saree Ceremony', link: 'https://www.youtube.com/embed/gMVlWZyoPak?si=FkxnorSpxKYlNHKj' },
 ];
 
 
