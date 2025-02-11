@@ -45,7 +45,7 @@ function MountainIcon(props: { className?: string }) {
 
 function NavComponent() {
     return (
-        <header className="flex h-16 w-full shrink-0 items-center px-4 md:px-6 border-b border-gray-200 shadow-sm">
+        <header className="sticky top-0 flex h-16 w-full shrink-0 items-center px-4 md:px-6 border-b border-gray-50 shadow-sm backdrop-blur-sm">
             <Sheet>
                 <SheetTrigger asChild>
                     <Button variant="outline" size="icon" className="lg:hidden">
@@ -53,48 +53,40 @@ function NavComponent() {
                         <span className="sr-only">Toggle navigation menu</span>
                     </Button>
                 </SheetTrigger>
-                <SheetContent side="left">
+                <SheetContent side="left" className={'bg-white'}>
                     <a href="#" className="mr-6 hidden lg:flex">
-                        <MountainIcon className="h-6 w-6"/>
-                        <span className="sr-only">Acme Inc</span>
+                        <MountainIcon className="h-6 w-6" />
+                        <span className="sr-only">Tanuja Basu</span>
                     </a>
                     <div className="grid gap-2 py-6">
-                        <a href="#" className="flex w-full items-center py-2 text-lg font-semibold">
-                            Home
+                        <MountainIcon className="h-6 w-6 text-primary mb-6" />
+                        <a href="#work" className="flex w-full items-center py-2 text-lg font-semibold">
+                            Work
                         </a>
-                        <a href="#" className="flex w-full items-center py-2 text-lg font-semibold">
+                        <a href="#about" className="flex w-full items-center py-2 text-lg font-semibold">
                             About
-                        </a>
-                        <a href="#" className="flex w-full items-center py-2 text-lg font-semibold">
-                            Contact
                         </a>
                     </div>
                 </SheetContent>
             </Sheet>
             <a href="#" className="mr-6 hidden lg:flex">
                 <MountainIcon className="h-6 w-6"/>
-                <span className="sr-only">Acme Inc</span>
+                <span className="sr-only">Tanuja Basu</span>
             </a>
             <nav className="ml-auto hidden lg:flex gap-6">
                 <a
-                    href="#"
-                    className="group inline-flex h-9 w-max items-center justify-center rounded-md bg-white px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-100 hover:text-gray-900 focus:bg-gray-100 focus:text-gray-900 focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-gray-100/50 data-[state=open]:bg-gray-100/50 dark:bg-gray-950 dark:hover:bg-gray-800 dark:hover:text-gray-50 dark:focus:bg-gray-800 dark:focus:text-gray-50 dark:data-[active]:bg-gray-800/50 dark:data-[state=open]:bg-gray-800/50"
+                    href="#work"
+                    className="group inline-flex h-9 w-max items-center justify-center rounded-md bg-white px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-100 hover:text-gray-900 focus:bg-gray-100 focus:text-gray-900 focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-gray-100/50 data-[state=open]:bg-gray-100/50"
 
                 >
                     Work
                 </a>
                 <a
-                    href="#"
-                    className="group inline-flex h-9 w-max items-center justify-center rounded-md bg-white px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-100 hover:text-gray-900 focus:bg-gray-100 focus:text-gray-900 focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-gray-100/50 data-[state=open]:bg-gray-100/50 dark:bg-gray-950 dark:hover:bg-gray-800 dark:hover:text-gray-50 dark:focus:bg-gray-800 dark:focus:text-gray-50 dark:data-[active]:bg-gray-800/50 dark:data-[state=open]:bg-gray-800/50"
+                    href="#about"
+                    className="group inline-flex h-9 w-max items-center justify-center rounded-md bg-white px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-100 hover:text-gray-900 focus:bg-gray-100 focus:text-gray-900 focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-gray-100/50 data-[state=open]:bg-gray-100/50"
 
                 >
                     About
-                </a>
-                <a
-                    href="#"
-                    className="group inline-flex h-9 w-max items-center justify-center rounded-md bg-white px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-100 hover:text-gray-900 focus:bg-gray-100 focus:text-gray-900 focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-gray-100/50 data-[state=open]:bg-gray-100/50 dark:bg-gray-950 dark:hover:bg-gray-800 dark:hover:text-gray-50 dark:focus:bg-gray-800 dark:focus:text-gray-50 dark:data-[active]:bg-gray-800/50 dark:data-[state=open]:bg-gray-800/50"
-                >
-                    Contact
                 </a>
             </nav>
         </header>
@@ -131,11 +123,18 @@ const VideoBox = ({ title, link }: { title: string; link: string }) => (
 
 function App() {
 
+    function sendEmail() {
+        const mail = 'mailto:tannubasu74784@gmail.com';
+        const a = document.createElement('a');
+        a.href = mail;
+        a.click();
+    }
+
     return (
         <>
             <NavComponent/>
             <div className={'container h-screen'}>
-                <div className={'flex flex-col items-center justify-center mt-12'}>
+                <div className={'flex flex-col items-center justify-center mt-12'} id="work">
                     <p className={'font-display text-[36px] pb-2'}>Hi there!</p>
                     <span className={'font-body text-[21px]'}>I'm</span>
                     <h1 className={'text-[75px] leading-[85px] font-bold tracking-tight'}>TANUJA BASU</h1>
@@ -149,13 +148,13 @@ function App() {
                     {secTwo.map((item) => <VideoBox key={item.title} link={item.link} title={item.title} />)}
                 </section>
 
-                <section className={'pt-18'}>
+                <section className={'pt-18'} id="about">
                     <div className={'flex flex-col justify-center items-center'}>
                         {/*<div className={'aspect-square'}></div>*/}
                         {/*<div>*/}
                             <h2 className={'text-[36px] font-body font-bold tracking-tight'}>About Me</h2>
                             <p className={'text-[#5f5f5f] text-[16px] my-3 w-2/4 text-center tracking-wide'}>Born and raised in Kolkata, now based in Bangalore, I’m a passionate video editor dedicated to crafting cinematic memories that last a lifetime. With nearly three years of professional experience, I specialize in transforming raw moments into stunning visuals that my clients can cherish forever. Beyond video editing, I have a deep love for photography, capturing emotions and stories in every frame. Let’s create something beautiful together!</p>
-                            <RainbowButton className={'text-white mt-6'}>Let's Chat</RainbowButton>
+                            <RainbowButton className={'text-white mt-6'} onClick={sendEmail}>Let's Chat</RainbowButton>
                         {/*</div>*/}
                     </div>
                 </section>
